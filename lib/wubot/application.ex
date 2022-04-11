@@ -8,6 +8,7 @@ defmodule Wubot.Application do
   @impl true
   def start(_type, _args) do
     children = [
+      WuBot.Consumer
       # Starts a worker by calling: Wubot.Worker.start_link(arg)
       # {Wubot.Worker, arg}
     ]
