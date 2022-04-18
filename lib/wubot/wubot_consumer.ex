@@ -8,21 +8,22 @@ defmodule WuBot.Consumer do
   end
 
   def handle_event({:MESSAGE_CREATE, msg, _ws_state}) do
-    case msg.content do
-      "!sleep" ->
+    content = msg.content
+    cond do
+      content == "!sleep" ->
         Api.create_message(msg.channel_id, "Going to sleep...")
         # This won't stop other events from being handled.
         Process.sleep(3000)
 
-      "!ping" ->
+      content == "!ping" ->
         Api.create_message(msg.channel_id, "pyongyang!")
 
-      "!raise" ->
+      content == "!raise" ->
         # This won't crash the entire Consumer.
         raise "No problems here!"
 
-      _ ->
-        :ignore
+      content == "!fruit" ->
+        IO.puts(msg)
     end
   end
 
