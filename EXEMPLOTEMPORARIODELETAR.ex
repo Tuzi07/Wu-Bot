@@ -41,6 +41,11 @@ defmodule Testebot.Consumer do
     end
   end
 
+  def durao() do
+    IO.puts("kkk")
+  end
+
+
   def handle_event(_event) do
     :noop
   end
