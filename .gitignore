@@ -25,5 +25,4 @@ wubot-*.tar
 # Temporary files, for example, from tests.
 /tmp/
 
-# TEMPORARIOOOO
-/config/
+env.sh
