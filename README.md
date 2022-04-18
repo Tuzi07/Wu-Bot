@@ -1,6 +1,8 @@
 # Wubot
 
 **TODO: Add description**
+**TODO: Remover exemplo temporário**
+
 
 ## Installation
 
