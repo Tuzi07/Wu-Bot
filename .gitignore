@@ -26,3 +26,5 @@ wubot-*.tar
 /tmp/
 
 env.sh
+
+env.bat
