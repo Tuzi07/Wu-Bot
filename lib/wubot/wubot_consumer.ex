@@ -11,12 +11,12 @@ defmodule WuBot.Consumer do
     content = msg.content
     cond do
       content == "!sleep" ->
-        Api.create_message(msg.channel_id, "Going to sleep...")
+        send_message_to_discord_channel("Going to sleep..." ,msg.channel_id)
         # This won't stop other events from being handled.
         Process.sleep(3000)
 
       content == "!ping" ->
-        Api.create_message(msg.channel_id, "pyongyang!")
+        send_message_to_discord_channel( "pyongyang!" ,msg.channel_id)
 
       content == "!raise" ->
         # This won't crash the entire Consumer.
@@ -31,5 +31,9 @@ defmodule WuBot.Consumer do
   # you don't have a method definition for each event type.
   def handle_event(_event) do
     :noop
+  end
+
+  defp send_message_to_discord_channel(text, channel_id) do
+    Api.create_message(channel_id, text)
   end
 end
