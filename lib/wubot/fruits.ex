@@ -1,5 +1,5 @@
 defmodule Fruits do
-  def fruit_handler(content) do
+  def handler(content) do
     command = Enum.fetch!(String.split(content, " ", parts: 2), 1)
 
     case command do
