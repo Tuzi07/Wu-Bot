@@ -33,6 +33,8 @@ defmodule WuBot.Consumer do
       content == "!bible" ->
         send_message_to_discord_channel(Bible.random_quote(), channel_id)
 
+      String.starts_with?(content, "!football") ->
+        send_message_to_discord_channel(Football.handler(content), channel_id)
       true ->
         :ignore
     end
