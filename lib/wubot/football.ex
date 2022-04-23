@@ -34,7 +34,8 @@ defmodule Football do
   end
 
   defp help do
-    "**Command List**\n\n" <> Enum.join(["leagues", "[leagueId]", "[leagueId] [year]"], "\n")
+    "**Command List**\n\n" <>
+      Enum.join(["leagues", "seasons [leagueId]", "[leagueId] [year]"], "\n")
   end
 
   defp league_list do
@@ -93,11 +94,11 @@ defmodule Football do
         if http_data["status"] do
           league_name = http_data["data"]["name"]
           league_year = http_data["data"]["seasonDisplay"]
-          league_standings = http_data["data"]["standings"]
+          league_standings = Enum.with_index(http_data["data"]["standings"])
 
           standings_format_list =
-            Enum.map(league_standings, fn team ->
-              "#{team["note"]["rank"]}. **#{team["team"]["displayName"]}** (#{team["team"]["abbreviation"]})"
+            Enum.map(league_standings, fn {team, index} ->
+              "#{index + 1}. **#{team["team"]["displayName"]}** (#{team["team"]["abbreviation"]})"
             end)
 
           "**#{league_name} #{league_year}**\n\n" <> Enum.join(standings_format_list, "\n")
