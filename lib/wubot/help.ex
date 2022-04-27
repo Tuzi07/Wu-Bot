@@ -1,6 +1,6 @@
 defmodule Help do
   def help_message() do
-    "List of commands:\n" <> command_descriptions()
+    "**List of commands**\n" <> command_descriptions()
   end
 
   defp command_descriptions() do

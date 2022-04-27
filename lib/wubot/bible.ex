@@ -9,6 +9,6 @@ defmodule Bible do
     number = http_data["number"]
     author = http_data["book"]["author"]
 
-    "\"#{text}\" - #{author} #{chapter}:#{number}"
+    "\"*#{text}*\" - #{author} #{chapter}:#{number}"
   end
 end
