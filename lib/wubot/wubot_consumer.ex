@@ -38,9 +38,15 @@ defmodule WuBot.Consumer do
 
       String.starts_with?(content, "!football") ->
         send_message_to_discord_channel(Football.handler(content), channel_id)
+
+      String.starts_with?(content, "!password") ->
+        send_message_to_discord_channel(
+          Password.argument_handler(command_argument(content)),
+          channel_id
+        )
+
       true ->
         :ignore
-
     end
   end
 
@@ -52,5 +58,13 @@ defmodule WuBot.Consumer do
 
   defp send_message_to_discord_channel(text, channel_id) do
     Api.create_message(channel_id, text)
+  end
+
+  defp command_argument(command) do
+    if String.contains?(command, " ") do
+      Enum.fetch!(String.split(command, " ", parts: 2), 1)
+    else
+      "help"
+    end
   end
 end
