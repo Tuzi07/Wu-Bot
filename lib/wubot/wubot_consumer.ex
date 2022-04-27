@@ -33,6 +33,10 @@ defmodule WuBot.Consumer do
       content == "!bible" ->
         send_message_to_discord_channel(Bible.random_quote(), channel_id)
 
+      String.starts_with?(content, "!crypto") ->
+        argument = command_argument(content)
+        send_message_to_discord_channel(CryptoCurrency.handle_argument(argument), channel_id)
+
       true ->
         :ignore
     end
@@ -46,5 +50,9 @@ defmodule WuBot.Consumer do
 
   defp send_message_to_discord_channel(text, channel_id) do
     Api.create_message(channel_id, text)
+  end
+
+  defp command_argument(command) do
+    Enum.fetch!(String.split(command, " ", parts: 2), 1)
   end
 end
