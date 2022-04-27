@@ -6,6 +6,10 @@ defmodule Testebot.Consumer do
     Consumer.start_link(__MODULE__)
   end
 
+  def a do
+    a = 1
+  end
+
   defp send_message_to_channel(text, channel_id) do
     Api.create_message(channel_id, text)
   end
