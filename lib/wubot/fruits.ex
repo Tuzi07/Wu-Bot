@@ -1,7 +1,5 @@
 defmodule Fruits do
-  def handler(content) do
-    command = Enum.fetch!(String.split(content, " ", parts: 2), 1)
-
+  def handle_argument(command) do
     case command do
       "random" ->
         fruit_rand()
@@ -9,9 +7,16 @@ defmodule Fruits do
       "all" ->
         fruit_list()
 
+      "help" ->
+        help()
+
       _ ->
         fruit_by_name(command)
     end
+  end
+
+  defp help do
+    "**Fruit Command List**\n\n`random`\n`all`\n`[fruit name]`"
   end
 
   defp fruit_by_name(name) do
