@@ -6,6 +6,6 @@ defmodule ProgrammingQuote do
 
     author = http_data["author"]
     programming_quote = http_data["en"]
-    "\"#{programming_quote}\" - #{author}"
+    "\"*#{programming_quote}*\" - #{author}"
   end
 end
