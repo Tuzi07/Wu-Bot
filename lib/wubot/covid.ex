@@ -1,11 +1,11 @@
 defmodule Covid do
   def handle_argument(argument) do
-    {command, country} = split_argument(argument)
+    {command, param} = split_argument(argument)
 
     case command do
       "help" -> help()
-      "countries" -> country_list()
-      "deaths" -> deaths(country)
+      "countries" -> country_list(String.to_integer(param))
+      "deaths" -> deaths(param)
     end
   end
 
@@ -14,7 +14,11 @@ defmodule Covid do
       split_result = String.split(argument, " ", parts: 2)
       {Enum.fetch!(split_result, 0), Enum.fetch!(split_result, 1)}
     else
-      {argument, "World"}
+      if argument == "countries" do
+        {argument, 0}
+      else
+        {argument, "World"}
+      end
     end
   end
 
@@ -22,14 +26,23 @@ defmodule Covid do
     "**Covid Command Help**\n\n`countries`\n`deaths [country name]`\n`cases [country name]`\n`recovered [country name]`\n***Country name* is optional. Provide no country to see *world* stats**"
   end
 
-  defp country_list do
-    http_response = HTTPoison.get!("https://covid-19.dataflowkit.com/v1")
-    IO.puts("countries")
-    {:ok, data_list} = Poison.decode(http_response.body)
+  defp country_list(page) do
+    if page != 0 do
+      http_response = HTTPoison.get!("https://covid-19.dataflowkit.com/v1")
+      {:ok, data_list} = Poison.decode(http_response.body)
 
-    country_names = Enum.map(data_list, fn country -> country["Country_text"] end)
-    IO.puts("sending message")
-    "**Country List**\n\n" <> Enum.join(country_names, "\n")
+      list_index = page-1
+      page_count = 10
+      page_length = Integer.floor_div(length(data_list), page_count)
+      pages_list = Enum.chunk_every(data_list, page_length)
+
+      country_page_list = Enum.at(pages_list, list_index)
+
+      country_names = Enum.map(country_page_list, fn country -> country["Country_text"] end)
+      "**Country List Page #{page}**\n\n" <> Enum.join(country_names, "\n")
+    else
+      "Please provide a page number. [1-10]"
+    end
   end
 
   defp deaths(country) do
