@@ -28,7 +28,7 @@ defmodule WuBot.Consumer do
         send_message_to_discord_channel(Help.help_message(), channel_id)
 
       String.starts_with?(content, "!fruit") ->
-        send_message_to_discord_channel(Fruits.handler(content), channel_id)
+        send_message_to_discord_channel(Fruits.handle_argument(command_argument(content)), channel_id)
 
       content == "!programmingquote" ->
         send_message_to_discord_channel(ProgrammingQuote.random_quote(), channel_id)
@@ -37,14 +37,17 @@ defmodule WuBot.Consumer do
         send_message_to_discord_channel(Bible.random_quote(), channel_id)
 
       String.starts_with?(content, "!football") ->
-        send_message_to_discord_channel(Football.handler(content), channel_id)
+        send_message_to_discord_channel(Football.handle_argument(command_argument(content)), channel_id)
 
-      String.starts_with?(content, "!password") ->
+      String.starts_with?(content, "!crypto") ->
+        argument = command_argument(content)
+        send_message_to_discord_channel(CryptoCurrency.handle_argument(argument), channel_id)
+        
+        String.starts_with?(content, "!password") ->
         send_message_to_discord_channel(
           Password.argument_handler(command_argument(content)),
           channel_id
         )
-
       true ->
         :ignore
     end
