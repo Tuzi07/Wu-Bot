@@ -38,7 +38,7 @@ defmodule WuBot.Consumer do
 
       String.starts_with?(content, "!football") ->
         send_message_to_discord_channel(Football.handle_argument(command_argument(content)), channel_id)
-
+        
       String.starts_with?(content, "!crypto") ->
         argument = command_argument(content)
         send_message_to_discord_channel(CryptoCurrency.handle_argument(argument), channel_id)
@@ -48,6 +48,9 @@ defmodule WuBot.Consumer do
           Password.argument_handler(command_argument(content)),
           channel_id
         )
+        
+        String.starts_with?(content, "!covid") ->
+          send_message_to_discord_channel(Covid.handle_argument(command_argument(content)), channel_id)
       true ->
         :ignore
     end
