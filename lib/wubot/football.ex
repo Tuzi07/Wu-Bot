@@ -6,11 +6,14 @@ defmodule Football do
       "leagues" ->
         league_list()
 
-      "help" ->
+      "help" -> 
         help()
-      "seasons" -> league_seasons_list(parameter)
+        
+      "seasons" -> 
+        league_seasons_list(parameter)
 
-      _ -> get_season(command, parameter)
+      _ -> 
+        get_season(command, parameter)
     end
   end
 
@@ -24,8 +27,7 @@ defmodule Football do
   end
 
   defp help do
-    "**Football Command List**\n\n" <>
-      Enum.join(["`leagues`", "`seasons [leagueId]`", "`[leagueId] [year]`"], "\n")
+    "**Football Command List**\n\n" <> Enum.join(["`leagues`", "`seasons [leagueId]`", "`[leagueId] [year]`"], "\n")
   end
 
   defp league_list do
