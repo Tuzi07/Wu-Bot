@@ -42,9 +42,14 @@ defmodule WuBot.Consumer do
       String.starts_with?(content, "!crypto") ->
         argument = command_argument(content)
         send_message_to_discord_channel(CryptoCurrency.handle_argument(argument), channel_id)
+        
+        String.starts_with?(content, "!password") ->
+        send_message_to_discord_channel(
+          Password.argument_handler(command_argument(content)),
+          channel_id
+        )
       true ->
         :ignore
-
     end
   end
 
