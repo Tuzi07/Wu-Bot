@@ -6,15 +6,13 @@ defmodule Fruits do
 
       "all" ->
         fruit_list()
-
       "help" ->
         help()
-
       _ ->
         fruit_by_name(command)
     end
   end
-
+  
   defp help do
     "**Fruit Command List**\n\n`random`\n`all`\n`[fruit name]`"
   end

@@ -8,7 +8,6 @@ defmodule Football do
 
       "help" ->
         help()
-
       "seasons" -> league_seasons_list(parameter)
 
       _ -> get_season(command, parameter)
@@ -44,6 +43,7 @@ defmodule Football do
       "**League List**\n\n" <> Enum.join(league_format_list, "\n")
     end
   end
+
 
   defp league_seasons_list(league) do
     http_response =
