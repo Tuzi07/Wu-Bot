@@ -44,7 +44,7 @@ defmodule WuBot.Consumer do
           Password.argument_handler(command_argument(content)),
           channel_id
         )
-
+        
       String.starts_with?(content, "!covid") ->
         send_message_to_discord_channel(
           Covid.handle_argument(command_argument(content)),
@@ -53,7 +53,10 @@ defmodule WuBot.Consumer do
 
       content == "!fox" ->
         send_message_to_discord_channel(Fox.image(), channel_id)
-
+        
+      String.starts_with?(content, "!programmingcontest") ->
+          send_message_to_discord_channel(ProgrammingContest.handle_argument(command_argument(content)), channel_id)
+          
       true ->
         :ignore
     end
