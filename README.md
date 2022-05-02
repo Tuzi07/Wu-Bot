@@ -95,7 +95,9 @@ Exemplo de uso:
 Exemplo de uso:
 
 `!crypto random`
+
 `!crypto top10`
+
 `!crypto bitcoin`
 
 ### Programming Contest
