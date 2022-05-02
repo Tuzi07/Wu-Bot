@@ -70,7 +70,7 @@ Exemplo:
 
 `!password generate`
 
-!password generate 8`
+`!password generate 8`
 
 ### Programming Contest
 - sites: Envia uma lista dos difrentes sites para competiçoes de programação junto com o URL.
