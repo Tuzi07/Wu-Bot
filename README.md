@@ -11,7 +11,7 @@
 - all: Mostra a lista completa de frutas.
 - 'nome de fruta especifico': Mostra a informaçao nutricional dessa fruta.
 
-Exemplo:
+Exemplo de uso:
 
 `!fruit all`
 
@@ -22,15 +22,23 @@ Exemplo:
 ### Bible
 - bible: Envia mensagem com uma frase aleatoria da biblia junto com libro, capitulo e versiculo.
 
+Exemplo de uso:
+
+`!bible`
+
 ### Programming Quote
 - programmingquote: Envia frase famosa sobre programação com nome do autor.
+
+Exemplo de uso:
+
+`!programmingquote`
 
 ### Football
 - leagues: Mostra lista de ligas cuja informação esta disponivel.
 - seasons 'Codigo da liga': Mostra anos das temporadas disponiveis da liga escolhida.
 - 'codigo da liga' 'ano': Mostra a tabela de posições desse ano da lga escolhida.
 
-Exemplo:
+Exemplo de uso:
 
 `!football`
 
@@ -47,7 +55,7 @@ Exemplo:
 - recovered 'nome do pais': Mostra conta das pessoas recuperadas no pais especifico.
 - recovered 'nome do pais': Mostra conta de casos ativos no pais especifico.
 
-Exemplo:
+Exemplo de uso:
 
 `!covid`
 
@@ -64,7 +72,7 @@ Exemplo:
 ### Password
 - generate '# de carateres': Gera uma senha com o numero de carateres dado, se nao tiver um numero especifico o numero de carateres sera aleatorio.
 
-Exemplo:
+Exemplo de uso:
 
 `!password`
 
@@ -76,7 +84,7 @@ Exemplo:
 - sites: Envia uma lista dos difrentes sites para competiçoes de programação junto com o URL.
 - contests 'nome do site' 'today?': Mostra uma lista das competiçoes futuras nesse site. Se a palavra today estiver no final, a lista so tera as competições que aconteceram nas proximas 24 horas.
 
-Exemplo:
+Exemplo de uso:
 
 `!programmingcontest`
 
@@ -89,8 +97,18 @@ Exemplo:
 ### Fox
 - mostra imagem de uma raposa
 
+Exemplo de uso:
+
+`!fox`
+
 ### Crypto
 - top10: Mostra as 10 crypto moedas com maior valor em ordem decrescente.
 - random: Mostra as informações de uma moeda aleatoria.
 - 'Nome da moeda': Mostra as informações da moeda escolhida.
 
+### IsEven
+- 'número': mostra se número é par ou ímpar
+
+Exemplo de uso:
+
+`!iseven 5`
