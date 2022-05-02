@@ -12,23 +12,14 @@ defmodule WuBot.Consumer do
     content = msg.content
 
     cond do
-      content == "!sleep" ->
-        send_message_to_discord_channel("Going to sleep...", channel_id)
-        # This won't stop other events from being handled.
-        Process.sleep(3000)
-
-      content == "!ping" ->
-        send_message_to_discord_channel("pyongyang!", channel_id)
-
-      content == "!raise" ->
-        # This won't crash the entire Consumer.
-        raise "No problems here!"
-
       content == "!help" ->
         send_message_to_discord_channel(Help.help_message(), channel_id)
 
       String.starts_with?(content, "!fruit") ->
-        send_message_to_discord_channel(Fruits.handle_argument(command_argument(content)), channel_id)
+        send_message_to_discord_channel(
+          Fruits.handle_argument(command_argument(content)),
+          channel_id
+        )
 
       content == "!programmingquote" ->
         send_message_to_discord_channel(ProgrammingQuote.random_quote(), channel_id)
@@ -37,23 +28,35 @@ defmodule WuBot.Consumer do
         send_message_to_discord_channel(Bible.random_quote(), channel_id)
 
       String.starts_with?(content, "!football") ->
-        send_message_to_discord_channel(Football.handle_argument(command_argument(content)), channel_id)
+        send_message_to_discord_channel(
+          Football.handle_argument(command_argument(content)),
+          channel_id
+        )
 
       String.starts_with?(content, "!crypto") ->
-        argument = command_argument(content)
-        send_message_to_discord_channel(CryptoCurrency.handle_argument(argument), channel_id)
+        send_message_to_discord_channel(
+          CryptoCurrency.handle_argument(command_argument(content)),
+          channel_id
+        )
 
-        String.starts_with?(content, "!password") ->
+      String.starts_with?(content, "!password") ->
         send_message_to_discord_channel(
           Password.argument_handler(command_argument(content)),
           channel_id
         )
+        
+      String.starts_with?(content, "!covid") ->
+        send_message_to_discord_channel(
+          Covid.handle_argument(command_argument(content)),
+          channel_id
+        )
 
-        String.starts_with?(content, "!covid") ->
-          send_message_to_discord_channel(Covid.handle_argument(command_argument(content)), channel_id)
-
-        String.starts_with?(content, "!programmingcontest") ->
+      content == "!fox" ->
+        send_message_to_discord_channel(Fox.image(), channel_id)
+        
+      String.starts_with?(content, "!programmingcontest") ->
           send_message_to_discord_channel(ProgrammingContest.handle_argument(command_argument(content)), channel_id)
+          
       true ->
         :ignore
     end

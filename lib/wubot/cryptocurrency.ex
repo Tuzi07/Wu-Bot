@@ -1,6 +1,9 @@
 defmodule CryptoCurrency do
   def handle_argument(argument) do
     case argument do
+      "help" ->
+        help()
+
       "top10" ->
         top_10_crypto_message()
 
@@ -10,6 +13,10 @@ defmodule CryptoCurrency do
       _ ->
         fetch_crypto_and_create_message(argument)
     end
+  end
+
+  defp help() do
+    "**Crypto Command List**\n\n`top10`\n`random`"
   end
 
   defp top_10_crypto_message() do
