@@ -16,8 +16,10 @@ defmodule Help do
   defp command_description_map() do
     %{
       "!help" => "Shows this message",
-      "!programmingquote" => "Shows random quote about programming",
-      "!bible" => "Shows random verse from the Holy Bible in Portuguese"
+      "!programmingquote" => "Shows a quote about programming",
+      "!bible" => "Shows a verse from the Holy Bible in Portuguese",
+      "!fox" => "Shows a fox image",
+      "!crypto" => "Shows cryptocurrency information"
     }
   end
 end
