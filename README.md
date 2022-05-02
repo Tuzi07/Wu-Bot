@@ -26,13 +26,6 @@ Exemplo de uso:
 
 `!bible`
 
-### Programming Quote
-- programmingquote: Envia frase famosa sobre programação com nome do autor.
-
-Exemplo de uso:
-
-`!programmingquote`
-
 ### Football
 - leagues: Mostra lista de ligas cuja informação esta disponivel.
 - seasons 'Codigo da liga': Mostra anos das temporadas disponiveis da liga escolhida.
@@ -47,6 +40,13 @@ Exemplo de uso:
 `!football seasons eng.1`
 
 `!football eng.1 2016 `
+
+### Programming Quote
+- programmingquote: Envia frase famosa sobre programação com nome do autor.
+
+Exemplo de uso:
+
+`!programmingquote`
 
 ### Covid
 - countries '# pagina': Mostra os nomes dos paises na pagina escolhida.
@@ -69,6 +69,13 @@ Exemplo de uso:
 
 `!covid active Brazil`
 
+### Fox
+- mostra imagem de uma raposa
+
+Exemplo de uso:
+
+`!fox`
+
 ### Password
 - generate '# de carateres': Gera uma senha com o numero de carateres dado, se nao tiver um numero especifico o numero de carateres sera aleatorio.
 
@@ -80,8 +87,19 @@ Exemplo de uso:
 
 `!password generate 8`
 
+### Crypto
+- top10: Mostra as 10 crypto moedas com maior valor em ordem decrescente.
+- random: Mostra as informações de uma moeda aleatoria.
+- 'Nome da moeda': Mostra as informações da moeda escolhida.
+
+Exemplo de uso:
+
+`!crypto random`
+`!crypto top10`
+`!crypto bitcoin`
+
 ### Programming Contest
-- sites: Envia uma lista dos difrentes sites para competiçoes de programação junto com o URL.
+- sites: Envia uma lista dos diferentes sites para competiçoes de programação junto com o URL.
 - contests 'nome do site' 'today?': Mostra uma lista das competiçoes futuras nesse site. Se a palavra today estiver no final, a lista so tera as competições que aconteceram nas proximas 24 horas.
 
 Exemplo de uso:
@@ -93,18 +111,6 @@ Exemplo de uso:
 `!programmingcontest contests codeforces`
 
 `!programmingcontest contests codeforces today`
-
-### Fox
-- mostra imagem de uma raposa
-
-Exemplo de uso:
-
-`!fox`
-
-### Crypto
-- top10: Mostra as 10 crypto moedas com maior valor em ordem decrescente.
-- random: Mostra as informações de uma moeda aleatoria.
-- 'Nome da moeda': Mostra as informações da moeda escolhida.
 
 ### IsEven
 - 'número': mostra se número é par ou ímpar
