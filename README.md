@@ -80,8 +80,7 @@ Exemplo:
 
 `!programmingcontest`
 
-`!programmingcontest sites
-
+`!programmingcontest sites`
 
 `!programmingcontest contests codeforces`
 
