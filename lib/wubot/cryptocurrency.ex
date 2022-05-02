@@ -16,7 +16,7 @@ defmodule CryptoCurrency do
   end
 
   defp help() do
-    "**Crypto Command List**\n\n`top10`\n`random`"
+    "**Crypto Command List**\n\n`top10`\n`random`\n`[moeda]`"
   end
 
   defp top_10_crypto_message() do

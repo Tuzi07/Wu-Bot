@@ -94,6 +94,8 @@ Exemplo de uso:
 
 Exemplo de uso:
 
+`!crypto`
+
 `!crypto random`
 
 `!crypto top10`
@@ -118,5 +120,7 @@ Exemplo de uso:
 - 'número': mostra se número é par ou ímpar
 
 Exemplo de uso:
+
+`!iseven`
 
 `!iseven 5`
