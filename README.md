@@ -13,6 +13,8 @@
 
 ### Bible
 - bible: Envia mensagem com uma frase aleatoria da biblia junto com libro, capitulo e versiculo.
+Uso:
+`!programmingquote`
 
 ### Programming Quote
 - programmingquote: Envia frase famosa sobre programação com nome do autor.
@@ -44,3 +46,7 @@
 - random: Mostra as informações de uma moeda aleatoria.
 - 'Nome da moeda': Mostra as informações da moeda escolhida.
 
+### IsEven
+- top10: Mostra as 10 crypto moedas com maior valor em ordem decrescente.
+- random: Mostra as informações de uma moeda aleatoria.
+- 'Nome da moeda': Mostra as informações da moeda escolhida.
