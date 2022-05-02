@@ -13,6 +13,8 @@
 
 ### Bible
 - bible: Envia mensagem com uma frase aleatoria da biblia junto com libro, capitulo e versiculo.
+
+
 Uso:
 `!programmingquote`
 
